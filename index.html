@@ -363,7 +363,7 @@ update(){this.x+=this.vx+Math.sin(this.y*.01)*.2;this.y+=this.vy;this.life-=this
 draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle='rgba('+this.color+','+this.life*.3+')';ctx.fill()}}
 for(let i=0;i<80;i++){const p=new P();p.y=Math.random()*h;p.life=Math.random();particles.push(p)}
 function anim(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});requestAnimationFrame(anim)}anim();
-function getNextSat(){const n=new Date(),t=new Date(n),d=n.getDay(),u=(0-d+7)%7||7;t.setDate(n.getDate()+u);t.setHours(18,30,0,0);if(t<=n)t.setDate(t.getDate()+7);return t}
+function getNextSat(){return new Date(2026,3,12,18,30,0,0)}
 function updateCD(){const t=getNextSat(),n=new Date(),diff=t-n;document.getElementById('cd-d').textContent=String(Math.floor(diff/864e5)).padStart(2,'0');document.getElementById('cd-h').textContent=String(Math.floor(diff%864e5/36e5)).padStart(2,'0');document.getElementById('cd-m').textContent=String(Math.floor(diff%36e5/6e4)).padStart(2,'0');document.getElementById('cd-s').textContent=String(Math.floor(diff%6e4/1e3)).padStart(2,'0')}
 updateCD();setInterval(updateCD,1000);
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
