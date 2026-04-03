@@ -9,7 +9,7 @@
  * 4. Create a Google Sheet with two tabs: "Registrations" and "Settings"
  *    - "Registrations" headers (Row 1):
  *      Timestamp | Week Date | Week Label | Name | Email | Phone | Activities |
- *      Donations/Sharing | Referral | Consent | Status | Approval Sent | Confirmation Sent | Confirmed | Location Sent
+ *      Donations/Sharing | Social Media | Referral | Consent | Status | Approval Sent | Confirmation Sent | Confirmed | Location Sent
  *    - "Settings" tab, Cell A1: "Location", Cell B1: your actual jam location address
  * 5. Deploy > New Deployment > Web App
  *    - Execute as: Me
@@ -53,13 +53,14 @@ const COL = {
   PHONE: 5,
   ACTIVITIES: 6,
   DONATE: 7,
-  REFERRAL: 8,
-  CONSENT: 9,
-  STATUS: 10,       // PENDING / APPROVED / DENIED
-  APPROVAL_SENT: 11,
-  CONFIRM_SENT: 12,
-  CONFIRMED: 13,    // YES after they reply
-  LOCATION_SENT: 14,
+  SOCIAL: 8,
+  REFERRAL: 9,
+  CONSENT: 10,
+  STATUS: 11,       // PENDING / APPROVED / DENIED
+  APPROVAL_SENT: 12,
+  CONFIRM_SENT: 13,
+  CONFIRMED: 14,    // YES after they reply
+  LOCATION_SENT: 15,
 };
 // ==================================================
 
@@ -99,6 +100,7 @@ function handleRegistration(e) {
     data.phone,
     data.activities.join(', '),
     data.donate || '',
+    data.social || '',
     data.referral || '',
     'YES',
     'PENDING',
@@ -251,7 +253,7 @@ function onEdit(e) {
   const status = e.range.getValue().toString().toUpperCase();
   if (status !== 'APPROVED') return;
 
-  const rowData = sheet.getRange(row, 1, 1, 15).getValues()[0];
+  const rowData = sheet.getRange(row, 1, 1, 16).getValues()[0];
   const approvalSent = (rowData[COL.APPROVAL_SENT] || '').toString().toUpperCase();
   if (approvalSent === 'YES') return;
 
@@ -360,6 +362,7 @@ function buildAdminEmail(data) {
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Phone</td><td style="padding:8px;border-bottom:1px solid #eee">${data.phone}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Activities</td><td style="padding:8px;border-bottom:1px solid #eee">${data.activities.join(', ')}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Donating/Sharing</td><td style="padding:8px;border-bottom:1px solid #eee">${data.donate || 'None'}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Social Media</td><td style="padding:8px;border-bottom:1px solid #eee">${data.social || 'None'}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Referring</td><td style="padding:8px;border-bottom:1px solid #eee">${data.referral || 'None'}</td></tr>
         <tr><td style="padding:8px;font-weight:bold">Waiver</td><td style="padding:8px">Accepted</td></tr>
       </table>

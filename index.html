@@ -258,6 +258,7 @@ section{padding:3rem 1.2rem}
 <div class="safe-card reveal"><div class="ic">&#128220;</div><h4>Community Guidelines</h4><p>Shared guidelines for responsible spinning. Participants are encouraged to avoid alcohol while spinning, wear proper attire, and show respect for all.</p></div>
 <div class="safe-card reveal"><div class="ic">&#127891;</div><h4>New Spinner Orientation</h4><p>First-timers get a safety walkthrough before touching fire.</p></div>
 <div class="safe-card reveal"><div class="ic">&#128205;</div><h4>Designated Zones</h4><p>Clearly marked spin zone, fuel station, spectator area, and cool-down zone.</p></div>
+<div class="safe-card reveal"><div class="ic">&#128085;</div><h4>What to Wear</h4><p><strong style="color:var(--green)">Fire-safe clothing only.</strong> Wear natural fibers: cotton, bamboo, leather, or blends that are at least 80% natural fiber. Avoid synthetics like polyester and nylon — they melt and stick to skin. Hair must be pulled back and secured. Closed-toe shoes are strongly recommended.</p></div>
 </div>
 </div>
 </section>
@@ -299,7 +300,7 @@ section{padding:3rem 1.2rem}
 <div class="reveal" style="text-align:center;margin-bottom:2rem">
 <div class="stag">Weekly Registration</div>
 <h2 class="sh">Register for an <em>Upcoming</em> Jam</h2>
-<p class="sd" style="margin-left:auto;margin-right:auto"><strong style="color:var(--amber)">Pre-registration is required every week.</strong> Space is limited and no walk-ins will be admitted. Select your week, choose your activities, and submit. After approval by the organizer (Caroline of HW Talent LLC), you'll receive a confirmation text 24 hours before the jam — reply YES to confirm and automatically receive the location.</p>
+<p class="sd" style="margin-left:auto;margin-right:auto"><strong style="color:var(--amber)">You must register every single week to attend.</strong> Previous registrations do not carry over — space is limited and no walk-ins will be admitted. Select your week below, choose your activities, and submit. After approval, you'll receive a confirmation text 24 hours before the jam — reply YES to confirm and automatically receive the location.</p>
 
 <label style="display:block;margin-top:1.5rem;margin-bottom:.3rem" class="reg-form">Select a Week *</label>
 <div class="week-picker" id="weekPicker"></div>
@@ -326,6 +327,9 @@ section{padding:3rem 1.2rem}
 
 <label for="reg-donate">Bringing anything to donate or share?</label>
 <input type="text" id="reg-donate" name="donate" placeholder="e.g. extra fuel, firewood, water, snacks, props to share...">
+
+<label for="reg-social">Social Media Handle</label>
+<input type="text" id="reg-social" name="social" placeholder="e.g. @yourname on Instagram, TikTok, etc.">
 
 <label for="reg-referral">Referring a friend? Enter their name</label>
 <input type="text" id="reg-referral" name="referral" placeholder="Friend's name (they must also register separately)">
@@ -400,13 +404,8 @@ const BACKEND_URL='https://script.google.com/macros/s/AKfycbyXEkom8oRXWVI_A7A-vF
 
 function getNextSundays(count){
   const sundays=[];
-  const now=new Date();
-  const d=new Date(now);
-  // Find next Sunday
-  const dayOfWeek=d.getDay();
-  const daysUntilSunday=(7-dayOfWeek)%7||7;
-  d.setDate(d.getDate()+daysUntilSunday);
-  d.setHours(18,30,0,0);
+  // Start from April 12, 2026
+  const d=new Date(2026,3,12,18,30,0,0);
   for(let i=0;i<count;i++){
     sundays.push(new Date(d));
     d.setDate(d.getDate()+7);
@@ -490,11 +489,12 @@ function submitRegistration(){
   const phone=document.getElementById('reg-phone').value.trim();
   const activities=[...document.querySelectorAll('input[name="activity"]:checked')].map(c=>c.value);
   const donate=document.getElementById('reg-donate').value.trim();
+  const social=document.getElementById('reg-social').value.trim();
   const referral=document.getElementById('reg-referral').value.trim();
   const weekDate=selectedWeek.toISOString().split('T')[0];
   const weekLabel='Sunday, '+MONTHS[selectedWeek.getMonth()]+' '+selectedWeek.getDate();
 
-  const data={name,email,phone,activities,donate,referral,weekDate,weekLabel,consent:true,timestamp:new Date().toISOString()};
+  const data={name,email,phone,activities,donate,social,referral,weekDate,weekLabel,consent:true,timestamp:new Date().toISOString()};
 
   fetch(BACKEND_URL,{method:'POST',body:JSON.stringify(data)})
     .then(r=>r.json())
