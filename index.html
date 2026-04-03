@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+r<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -101,11 +101,29 @@ section{padding:5rem 2rem}
 .spon-name{font-family:var(--fd);font-weight:700;font-size:1.6rem;text-transform:uppercase;color:var(--pure)}
 .spon-role{font-family:var(--fm);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber)}
 .spon-div{width:1px;height:50px;background:rgba(255,69,0,.25)}
-#signup{background:var(--dark);text-align:center}
-.signup-form{display:flex;gap:.4rem;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center}
-.signup-form input{flex:1;min-width:220px;padding:.7rem 1rem;background:var(--charcoal);border:1px solid var(--dim);color:var(--pure);font-family:var(--fb);font-size:.95rem;border-radius:2px;outline:none;transition:border .3s}
-.signup-form input:focus{border-color:var(--ember)}
-.signup-form input::placeholder{color:var(--gray)}
+#register{background:var(--dark);text-align:center}
+.reg-form{max-width:560px;margin:0 auto;text-align:left}
+.reg-form label{display:block;font-family:var(--fm);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:.3rem;margin-top:1rem}
+.reg-form input[type="text"],.reg-form input[type="email"],.reg-form input[type="tel"],.reg-form select{width:100%;padding:.7rem 1rem;background:var(--charcoal);border:1px solid var(--dim);color:var(--pure);font-family:var(--fb);font-size:.95rem;border-radius:2px;outline:none;transition:border .3s;box-sizing:border-box}
+.reg-form input:focus,.reg-form select:focus{border-color:var(--ember)}
+.reg-form input::placeholder{color:var(--gray)}
+.reg-form select{appearance:none;-webkit-appearance:none;cursor:pointer}
+.reg-form select option{background:var(--charcoal);color:var(--pure)}
+.activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.4rem}
+.activity-grid label{display:flex;align-items:center;gap:.5rem;font-size:.85rem;text-transform:none;letter-spacing:0;color:var(--pure);cursor:pointer;padding:.5rem .7rem;background:var(--charcoal);border:1px solid var(--dim);border-radius:2px;transition:all .25s;margin:0}
+.activity-grid label:hover{border-color:var(--ember)}
+.activity-grid input[type="checkbox"]{accent-color:var(--ember);width:16px;height:16px}
+.activity-grid input[type="checkbox"]:checked+span{color:var(--amber)}
+.waiver-box{margin-top:1.5rem;padding:1rem;background:rgba(255,69,0,.05);border:1px solid var(--dim);border-radius:2px;max-height:180px;overflow-y:auto;font-size:.78rem;color:var(--gray);line-height:1.6;text-align:left}
+.consent-row{display:flex;align-items:flex-start;gap:.6rem;margin-top:1rem;text-align:left}
+.consent-row input{margin-top:3px;accent-color:var(--ember);width:16px;height:16px;flex-shrink:0}
+.consent-row span{font-size:.82rem;color:var(--gray);line-height:1.5}
+.reg-form .btn-p{margin-top:1.5rem;width:100%;padding:.8rem;font-size:1rem}
+.reg-form .btn-p:disabled{opacity:.4;cursor:not-allowed}
+.reg-success{display:none;text-align:center;padding:2rem 1rem}
+.reg-success h3{font-family:var(--fd);font-size:1.5rem;color:var(--amber);margin-bottom:.5rem}
+.reg-success p{color:var(--gray);line-height:1.6;font-size:.9rem}
+@media(max-width:600px){.activity-grid{grid-template-columns:1fr}}
 .footer{background:var(--black);border-top:1px solid rgba(255,69,0,.1);padding:2.5rem 2rem 1.5rem;text-align:center}
 .footer-logo{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:1rem}
 .footer-logo img{height:36px}
@@ -146,7 +164,7 @@ section{padding:3rem 1.2rem}
 <li><a href="#community">Community</a></li>
 <li><a href="#sponsors">Sponsors</a></li>
 </ul>
-<a href="#signup" class="nav-cta">Join Us</a>
+<a href="#register" class="nav-cta">Register</a>
 </nav>
 
 <section class="hero">
@@ -181,13 +199,13 @@ section{padding:3rem 1.2rem}
 <div class="stag">About Vegas Fire Dancers</div>
 <h2 class="sh">Where <em>Fire Meets</em> Community</h2>
 <p class="sd">Vegas Fire Dancers is Las Vegas, NV's premier weekly fire flow jam — a space where spinners, dancers, and performers of all experience levels gather to practice, learn, and create together.</p>
-<p class="sd">Founded in 2026 with support from <strong style="color:var(--amber)">Fund the Flow Arts</strong> and sponsored by <strong style="color:var(--amber)">Pyrotechnique</strong>, we're building something special in the Las Vegas, NV desert.</p>
+<p class="sd">Founded in 2026 with support from <a href="https://www.fundtheflowarts.com" target="_blank" style="color:var(--amber);font-weight:700">Fund the Flow Arts</a> and sponsored by <a href="https://www.pyrotechnique.com" target="_blank" style="color:var(--amber);font-weight:700">Pyrotechnique</a>, we're building something special in Las Vegas, NV.</p>
 </div>
 <div class="pillars reveal">
 <div class="pill"><h4>Community First</h4><p>Inclusive, welcoming, and supportive of all skill levels, backgrounds, and prop types.</p></div>
 <div class="pill"><h4>Safety Always</h4><p>Trained safety personnel at every jam. Fire blankets, extinguishers, and first aid on-site.</p></div>
 <div class="pill"><h4>Education & Growth</h4><p>Workshops, mentorship pairings, and skill-building at every gathering.</p></div>
-<div class="pill"><h4>Best Foot Forward</h4><p>Representing fire arts professionally to the public and authorities.</p></div>
+
 <div class="pill"><h4>Responsible Flow</h4><p>Proper fuel handling, designated burn areas, and zero-tolerance alcohol-while-spinning policy.</p></div>
 </div>
 </div>
@@ -202,15 +220,15 @@ section{padding:3rem 1.2rem}
 <p class="sd" style="margin-left:auto;margin-right:auto">Every week in Las Vegas, NV. Here's what you need to know.</p>
 </div>
 <div class="sched-card reveal">
-<div class="sched-head"><h3>Weekly Fire Jam</h3><p>Every Sunday Night · Las Vegas, NV</p></div>
+<div class="sched-head"><h3>Next Fire Jam</h3><p>Sunday, April 5 · Las Vegas, NV</p></div>
 <div class="sched-body">
-<div class="sched-row"><span class="l">Day</span><span class="v">Every Sunday</span></div>
-<div class="sched-row"><span class="l">Arrival / Setup</span><span class="v">7:00 PM PST</span></div>
-<div class="sched-row"><span class="l">Safety Briefing</span><span class="v">7:30 PM</span></div>
-<div class="sched-row"><span class="l">Flow / Spin Time</span><span class="v">8:00 – 11:00 PM</span></div>
-<div class="sched-row"><span class="l">Location</span><span class="v">TBA — Las Vegas, NV Area Park</span></div>
-<div class="sched-row"><span class="l">Cost</span><span class="v">Free & Open to All</span></div>
-<div class="sched-note"><p><strong>What to bring:</strong> Your props (fire or LED), water, closed-toe shoes, and a great attitude. Fuel and safety equipment provided. New to flow? Come anyway — we have loaner props!</p></div>
+<div class="sched-row"><span class="l">Date</span><span class="v">Sunday, April 5, 2026</span></div>
+<div class="sched-row"><span class="l">Setup</span><span class="v">6:30 PM</span></div>
+<div class="sched-row"><span class="l">Safety Briefing</span><span class="v">7:00 PM</span></div>
+<div class="sched-row"><span class="l">Flow / Spin Time</span><span class="v">7:00 – 10:00 PM</span></div>
+<div class="sched-row"><span class="l">Location</span><span class="v">TBA — Las Vegas, NV</span></div>
+<div class="sched-row"><span class="l">Cost</span><span class="v">Free — Fuel & Firewood Donations Accepted</span></div>
+<div class="sched-note"><p><strong>Provided:</strong> Fuel, safeties, fire extinguishers, and fire blankets.</p><p><strong>Available on-site:</strong> Bathrooms, water, props, and chairs.</p><p><strong>What to bring:</strong> Closed-toe shoes and a great attitude. New to flow? Come anyway — we have loaner props!</p></div>
 </div>
 </div>
 </div>
@@ -242,8 +260,8 @@ section{padding:3rem 1.2rem}
 </div>
 <div class="comm-grid">
 <div class="feat reveal"><div class="feat-num">ALL</div><div class="feat-lab">Skill Levels Welcome</div><p>From first-time spinners to seasoned pros. LED and non-fire flow always welcome.</p></div>
-<div class="feat reveal"><div class="feat-num">52</div><div class="feat-lab">Jams Per Year</div><p>Every single week in Las Vegas, NV. Starry desert skies included.</p></div>
-<div class="feat reveal"><div class="feat-num">FREE</div><div class="feat-lab">Always Free</div><p>Grant-funded and sponsor-supported so you never pay to spin.</p></div>
+
+<div class="feat reveal"><div class="feat-num">FREE</div><div class="feat-lab">Always Free</div><p>Grant-funded and sponsor-supported. Fuel and firewood donations accepted.</p></div>
 <div class="feat reveal"><div class="feat-num">&hearts;</div><div class="feat-lab">Workshops & Mentorship</div><p>Monthly technique workshops, safety certifications, and mentorship pairings.</p></div>
 </div>
 </div>
@@ -256,24 +274,65 @@ section{padding:3rem 1.2rem}
 <h2 class="sh" style="text-align:center">Made Possible <em>By</em></h2>
 </div>
 <div class="spon-row reveal">
-<div class="spon-item"><div class="spon-name">Fund the Flow Arts</div><div class="spon-role">Grant Funding Partner</div></div>
+<div class="spon-item"><a href="https://www.fundtheflowarts.com" target="_blank" style="text-decoration:none;color:inherit"><div class="spon-name">Fund the Flow Arts</div><div class="spon-role">Grant Funding Partner</div></a></div>
 <div class="spon-div"></div>
-<div class="spon-item"><div class="spon-name">Pyrotechnique</div><div class="spon-role">Official Sponsor</div></div>
+<div class="spon-item"><a href="https://www.pyrotechnique.com" target="_blank" style="text-decoration:none;color:inherit"><div class="spon-name">Pyrotechnique</div><div class="spon-role">Official Sponsor</div></a></div>
+<div class="spon-div"></div>
+<div class="spon-item"><div class="spon-name">HW Talent LLC</div><div class="spon-role">Organizing Partner</div></div>
 </div>
 </div>
 </section>
 
-<section id="signup">
-<div class="inner" style="text-align:center">
-<div class="reveal">
-<div class="stag">Stay Connected</div>
-<h2 class="sh">Get <em>Weekly</em> Updates</h2>
-<p class="sd" style="margin-left:auto;margin-right:auto">Jam reminders, safety tips, community highlights from Las Vegas, NV.</p>
-<div class="signup-form">
-<input type="email" placeholder="your@email.com" aria-label="Email address">
-<button class="btn-p" onclick="alert('Thanks! Connect this to your Mailchimp list.')">Subscribe</button>
+
+<section id="register">
+<div class="inner">
+<div class="reveal" style="text-align:center;margin-bottom:2rem">
+<div class="stag">Weekly Registration</div>
+<h2 class="sh">Register for <em>This Week's</em> Jam</h2>
+<p class="sd" style="margin-left:auto;margin-right:auto">Pre-register below to reserve your spot. Location details will be sent after your registration is approved by HW Talent LLC.</p>
 </div>
-<p style="margin-top:.8rem;font-size:.7rem;color:var(--dim)">No spam. Unsubscribe anytime.</p>
+<div class="reg-form reveal" id="regForm">
+<label for="reg-name">Full Name *</label>
+<input type="text" id="reg-name" name="name" placeholder="Your full name" required>
+
+<label for="reg-email">Email *</label>
+<input type="email" id="reg-email" name="email" placeholder="your@email.com" required>
+
+<label for="reg-phone">Phone Number *</label>
+<input type="tel" id="reg-phone" name="phone" placeholder="(702) 555-1234" required>
+
+<label>Activities You're Interested In *</label>
+<div class="activity-grid">
+<label><input type="checkbox" name="activity" value="fire-spinning"><span>Fire Spinning</span></label>
+<label><input type="checkbox" name="activity" value="fire-aerial"><span>Fire Aerial</span></label>
+<label><input type="checkbox" name="activity" value="fire-breathing"><span>Fire Breathing / Eating</span></label>
+<label><input type="checkbox" name="activity" value="fire-bubbles"><span>Fire Bubbles</span></label>
+<label><input type="checkbox" name="activity" value="fire-safety"><span>Fire Safety</span></label>
+<label><input type="checkbox" name="activity" value="fire-choreo"><span>Fire Choreo</span></label>
+</div>
+
+<div class="waiver-box">
+<strong style="color:var(--amber)">WAIVER OF LIABILITY & ASSUMPTION OF RISK</strong><br><br>
+By registering for the Vegas Fire Dancers weekly fire jam, I acknowledge and agree to the following:<br><br>
+1. <strong>Assumption of Risk:</strong> I understand that fire arts, including but not limited to fire spinning, fire aerial, fire breathing/eating, fire bubbles, fire choreography, and fire safety activities, are inherently dangerous and carry significant risk of serious injury, burns, property damage, or death. I voluntarily assume all risks associated with my participation.<br><br>
+2. <strong>Personal Responsibility:</strong> I accept full responsibility for my own safety and participation. I understand that I participate entirely at my own risk. I will not engage in any activity beyond my skill level without proper guidance.<br><br>
+3. <strong>Release of Liability:</strong> I hereby release, waive, and forever discharge HW Talent LLC, Vegas Fire Dancers, their organizers, sponsors (including Fund the Flow Arts and Pyrotechnique), volunteers, and all affiliated persons from any and all liability, claims, demands, or causes of action arising out of or related to any loss, damage, or injury that may be sustained during my participation.<br><br>
+4. <strong>Medical Acknowledgment:</strong> I confirm that I am physically fit to participate and have no medical conditions that would prevent safe participation. I understand that no medical personnel are required to be on-site.<br><br>
+5. <strong>Compliance:</strong> I agree to follow all safety guidelines, instructions from safety personnel, and the code of conduct. I understand that failure to comply may result in removal from the event.<br><br>
+6. <strong>Media Release:</strong> I grant permission for photos and videos taken during the event to be used for promotional purposes.<br><br>
+This waiver is binding upon me, my heirs, executors, and assigns.
+</div>
+
+<div class="consent-row">
+<input type="checkbox" id="reg-consent" name="consent" required>
+<span>I have read and agree to the <strong style="color:var(--amber)">Waiver of Liability & Assumption of Risk</strong> above. I understand that participation is entirely at my own risk and I accept full responsibility for my own safety. *</span>
+</div>
+
+<button class="btn-p" id="regSubmit" disabled onclick="submitRegistration()">Submit Registration</button>
+</div>
+<div class="reg-success" id="regSuccess">
+<h3>Registration Submitted</h3>
+<p>Thank you for registering! Your registration is pending approval by HW Talent LLC. Once approved, you will receive the location details via email. You will also receive a day-of confirmation text to confirm your attendance.</p>
 </div>
 </div>
 </section>
@@ -285,11 +344,11 @@ section{padding:3rem 1.2rem}
 </div>
 <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:.8rem">Las Vegas, NV</div>
 <div class="footer-links">
-<a href="#about">About</a><a href="#schedule">Schedule</a><a href="#safety">Safety</a><a href="#community">Community</a><a href="#sponsors">Sponsors</a>
+<a href="#about">About</a><a href="#schedule">Schedule</a><a href="#safety">Safety</a><a href="#community">Community</a><a href="#sponsors">Sponsors</a><a href="#register">Register</a>
 </div>
 <div class="footer-cr">
 &copy; 2026 Vegas Fire Dancers. Las Vegas, NV. All rights reserved.<br>
-Funded by <a href="#">Fund the Flow Arts</a> &bull; Sponsored by <a href="#">Pyrotechnique</a><br>
+Funded by <a href="https://www.fundtheflowarts.com" target="_blank">Fund the Flow Arts</a> &bull; Sponsored by <a href="https://www.pyrotechnique.com" target="_blank">Pyrotechnique</a> &bull; Organized by HW Talent LLC<br>
 <span style="color:var(--dim)">#VegasFireDancers &bull; #SafeSpins &bull; #FlowArts</span>
 </div>
 </footer>
@@ -304,13 +363,64 @@ update(){this.x+=this.vx+Math.sin(this.y*.01)*.2;this.y+=this.vy;this.life-=this
 draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle='rgba('+this.color+','+this.life*.3+')';ctx.fill()}}
 for(let i=0;i<80;i++){const p=new P();p.y=Math.random()*h;p.life=Math.random();particles.push(p)}
 function anim(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});requestAnimationFrame(anim)}anim();
-function getNextSat(){const n=new Date(),t=new Date(n),d=n.getDay(),u=(0-d+7)%7||7;t.setDate(n.getDate()+u);t.setHours(19,0,0,0);if(t<=n)t.setDate(t.getDate()+7);return t}
+function getNextSat(){const n=new Date(),t=new Date(n),d=n.getDay(),u=(0-d+7)%7||7;t.setDate(n.getDate()+u);t.setHours(18,30,0,0);if(t<=n)t.setDate(t.getDate()+7);return t}
 function updateCD(){const t=getNextSat(),n=new Date(),diff=t-n;document.getElementById('cd-d').textContent=String(Math.floor(diff/864e5)).padStart(2,'0');document.getElementById('cd-h').textContent=String(Math.floor(diff%864e5/36e5)).padStart(2,'0');document.getElementById('cd-m').textContent=String(Math.floor(diff%36e5/6e4)).padStart(2,'0');document.getElementById('cd-s').textContent=String(Math.floor(diff%6e4/1e3)).padStart(2,'0')}
 updateCD();setInterval(updateCD,1000);
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open'))});
+
+// Registration form logic
+(function(){
+  const consent=document.getElementById('reg-consent');
+  const submit=document.getElementById('regSubmit');
+  const activities=document.querySelectorAll('input[name="activity"]');
+
+  function checkForm(){
+    const name=document.getElementById('reg-name').value.trim();
+    const email=document.getElementById('reg-email').value.trim();
+    const phone=document.getElementById('reg-phone').value.trim();
+    const hasActivity=[...activities].some(c=>c.checked);
+    const agreed=consent.checked;
+    submit.disabled=!(name&&email&&phone&&hasActivity&&agreed);
+  }
+
+  consent.addEventListener('change',checkForm);
+  activities.forEach(c=>c.addEventListener('change',checkForm));
+  ['reg-name','reg-email','reg-phone'].forEach(id=>{
+    document.getElementById(id).addEventListener('input',checkForm);
+  });
+})();
+
+function submitRegistration(){
+  const btn=document.getElementById('regSubmit');
+  btn.disabled=true;btn.textContent='Submitting...';
+  const name=document.getElementById('reg-name').value.trim();
+  const email=document.getElementById('reg-email').value.trim();
+  const phone=document.getElementById('reg-phone').value.trim();
+  const activities=[...document.querySelectorAll('input[name="activity"]:checked')].map(c=>c.value);
+  const data={name,email,phone,activities,consent:true,timestamp:new Date().toISOString()};
+
+  // Replace YOUR_APPS_SCRIPT_URL with your deployed Google Apps Script Web App URL
+  const BACKEND_URL='YOUR_APPS_SCRIPT_URL';
+
+  fetch(BACKEND_URL,{method:'POST',body:JSON.stringify(data)})
+    .then(r=>r.json())
+    .then(res=>{
+      if(res.success){
+        document.getElementById('regForm').style.display='none';
+        document.getElementById('regSuccess').style.display='block';
+      }else{
+        alert('Something went wrong. Please try again.');
+        btn.disabled=false;btn.textContent='Submit Registration';
+      }
+    })
+    .catch(()=>{
+      alert('Could not submit registration. Please check your connection and try again.');
+      btn.disabled=false;btn.textContent='Submit Registration';
+    });
+}
 </script>
 </body>
 </html>
